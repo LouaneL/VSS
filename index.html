@@ -17,6 +17,7 @@
     <link href="style/index.css" rel="stylesheet">
     <!-- WordCloud2.js via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.0"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
 </head>
 
@@ -36,10 +37,39 @@
     </header>
     <main>
         <!-- Conteneur pour le nuage de mots -->
-        <section id="visualisation">
+        <section>
             <h1>Nuage de mots : VSS et Féminicides</h1>
-            <div id="wordcloud-container"></div>
-            
+            <div id="container">
+                <div id="wordcloud-container"> </div>
+            </div>
+        </section>
+
+        <section>
+            <h1> Introduction du site :</h1>
+            <br>
+            Ce site met en lumière la triste réalité du féminicide : des femmes qui perdent la vie chaque jour
+            simplement parce qu'elles sont des femmes.
+            En France, mais aussi à travers le monde, des femmes meurent sous les coups de leur mari, de leur
+            ex-conjoint, de membres de leur famille ou parfois dans la rue.
+            Leurs histoires se ressemblent tristement : elles ont toutes été victimes de violences meurtrières
+            perpétrées par des hommes.
+            </br>
+            <br>
+            Ces hommes, souvent incapables d'accepter une séparation, un divorce, ou une volonté d’évasion, choisissent
+            de mettre fin à la vie de celles qu'ils prétendaient aimer.
+            Il arrive aussi que certains, dans leur désespoir, entraînent leur femme dans leur chute, sans comprendre
+            que leur violence va détruire une vie.
+            Le féminicide, cette forme extrême de violence de genre, touche des femmes de toutes conditions sociales et
+            d'âges différents.
+            Quelles que soient les circonstances, la raison est toujours la même : ces femmes ont été tuées parce
+            qu'elles étaient des femmes.
+            Ce site souhaite sensibiliser sur ce fléau, rappeler que chaque vie perdue compte et qu’il est urgent de
+            lutter contre ce cycle de violences.
+            </br>
+
+            <h1>Statistiques des Féminicides</h1>
+            <div id="chart-container"></div>
+            <script src="script/bar.js"></script>
         </section>
     </main>
     <footer>
@@ -49,7 +79,7 @@
             </a>
         </nav>
     </footer>
-    <script src="script/index.js" type="module"></script>
+    <script src="script/cloud.js" type="module"></script>
 </body>
 
 </html>

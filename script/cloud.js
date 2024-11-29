@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Créer le nuage de mots
     WordCloud(container, {
         list: wordList,
-        gridSize: 5,
+        gridSize: 3,
         weightFactor: 2,
         fontFamily: 'Montserrat',
         color: 'random-light',
-        rotateRatio: 0.2,
+        rotateRatio: 0.1,
         backgroundColor: '#f0f0f0',
         minSize: 2,
         maxSize: 10

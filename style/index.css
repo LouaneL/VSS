@@ -1,16 +1,22 @@
-#visualisation {
-    text-align: center;
-    margin: 50px auto;
-}
-
 #wordcloud-container {
-    margin: 0 auto;
     width: 80%;
     height: 900px;
+    margin-top: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    padding: 20px;
+    margin-bottom: 5%;
     background-color: #1f2039 !important;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#chart-container{
+    width: 50%;
+    height: 500px;
 }
