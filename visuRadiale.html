@@ -3,21 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Accueil - Visualisation des données</title>
-    <!-- Font : monserrat -->
+    <title>Visualisation Radiale - Visualisation des données</title>
+    <!-- Font : Montserrat & Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-    <!-- Font : manrope-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Montserrat:wght@500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link href="style/style.css" rel="stylesheet">
     <link href="style/index.css" rel="stylesheet">
-    <!-- WordCloud2.js via CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.0"></script>
-
+    <!-- D3.js -->
 </head>
 
 <body>
@@ -35,12 +28,13 @@
         </nav>
     </header>
     <main>
-        <!-- Conteneur pour le nuage de mots -->
-        <section id="visualisation">
-            <h1>Nuage de mots : VSS et Féminicides</h1>
-            <div id="wordcloud-container"></div>
-            
-        </section>
+        <h1>Visualisation Radiale</h1>
+        <svg id="radial-chart" width="500" height="500"></svg>
+
+        <!-- Inclus D3.js -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <!-- Lien vers le fichier JavaScript -->
+        <script src="script/visuRadiale.js"></script>
     </main>
     <footer>
         <nav class="footer-nav">
@@ -49,7 +43,6 @@
             </a>
         </nav>
     </footer>
-    <script src="script/index.js" type="module"></script>
 </body>
 
 </html>

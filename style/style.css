@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Manrope', sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer-nav {
+    justify-content: center;
+}
+
+.header-nav {
+    justify-content: space-between;
+}
+
+.logo {
+    width: 120px;
+    height: 100px;
+}
+
+main {
+    background-color: #1f2039;
+    color: white;
+}
