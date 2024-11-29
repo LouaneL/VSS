@@ -15,30 +15,28 @@
         rel="stylesheet">
     <link href="style/style.css" rel="stylesheet">
     <link href="style/index.css" rel="stylesheet">
+    <!-- WordCloud2.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.0"></script>
+
 </head>
 
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <a href="index.html">
-                    <img src="Images/logo.png" alt="Accueil">
-                </a>
-            </div>
-            <div class="liens-navigation">
-                <a href="index.html">Accueil</a>
-            </div>
         </nav>
     </header>
     <main>
+        <!-- Conteneur pour le nuage de mots -->
+        <section id="visualisation">
+            <h1>Nuage de mots : VSS et Féminicides</h1>
+            <div id="wordcloud-container"></div>
+            
+        </section>
     </main>
     <footer>
-        <nav>
-            <a href="index.html">
-                <img src="Images/logo.png" alt="Accueil">
-            </a>
-        </nav>
+
     </footer>
+    <script src="script/index.js" type="module"></script>
 </body>
 
 </html>
