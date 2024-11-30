@@ -40,37 +40,63 @@
         <section>
             <h1>Nuage de mots : VSS et Féminicides</h1>
             <div id="container">
-                <div id="wordcloud-container"> </div>
+                <div id="wordcloud-container">
+                </div>
+                <script src="script/cloud.js"> </script>
             </div>
         </section>
 
         <section>
-            <h1> Introduction du site :</h1>
-            <br>
-            Ce site met en lumière la triste réalité du féminicide : des femmes qui perdent la vie chaque jour
-            simplement parce qu'elles sont des femmes.
-            En France, mais aussi à travers le monde, des femmes meurent sous les coups de leur mari, de leur
-            ex-conjoint, de membres de leur famille ou parfois dans la rue.
-            Leurs histoires se ressemblent tristement : elles ont toutes été victimes de violences meurtrières
-            perpétrées par des hommes.
-            </br>
-            <br>
-            Ces hommes, souvent incapables d'accepter une séparation, un divorce, ou une volonté d’évasion, choisissent
-            de mettre fin à la vie de celles qu'ils prétendaient aimer.
-            Il arrive aussi que certains, dans leur désespoir, entraînent leur femme dans leur chute, sans comprendre
-            que leur violence va détruire une vie.
-            Le féminicide, cette forme extrême de violence de genre, touche des femmes de toutes conditions sociales et
-            d'âges différents.
-            Quelles que soient les circonstances, la raison est toujours la même : ces femmes ont été tuées parce
-            qu'elles étaient des femmes.
-            Ce site souhaite sensibiliser sur ce fléau, rappeler que chaque vie perdue compte et qu’il est urgent de
-            lutter contre ce cycle de violences.
-            </br>
+            <div id="content-container">
+                <section id="introduction">
+                    <h1>Introduction du site</h1>
+                    <br />
+                    <p>
+                        Ce site met en lumière la triste réalité du féminicide : des femmes qui perdent la vie chaque
+                        jour
+                        simplement parce qu'elles sont des femmes.
+                        En France, mais aussi à travers le monde, des femmes meurent sous les coups de leur mari, de
+                        leur
+                        ex-conjoint, de membres de leur famille ou parfois dans la rue.
+                        Leurs histoires se ressemblent tristement : elles ont toutes été victimes de violences
+                        meurtrières
+                        perpétrées par des hommes.
+                    </p>
+                    <br />
+                    <p>
+                        Ces hommes, souvent incapables d'accepter une séparation, un divorce, ou une volonté d’évasion,
+                        choisissent
+                        de mettre fin à la vie de celles qu'ils prétendaient aimer.
+                        Il arrive aussi que certains, dans leur désespoir, entraînent leur femme dans leur chute, sans
+                        comprendre
+                        que leur violence va détruire une vie.
+                        Le féminicide, cette forme extrême de violence de genre, touche des femmes de toutes conditions
+                        sociales et
+                        d'âges différents.
+                        Quelles que soient les circonstances, la raison est toujours la même : ces femmes ont été tuées
+                        parce
+                        qu'elles étaient des femmes.
+                        Ce site souhaite sensibiliser sur ce fléau, rappeler que chaque vie perdue compte et qu’il est
+                        urgent de
+                        lutter contre ce cycle de violences.
+                    </p>
+                </section>
+                <section id="statistics">
+                    <h1>Statistiques des Féminicides</h1>
+                    <br />
+                    <div id="chart-container"></div>
+                    <p id="texte">
+                        Ce graphique illustre le nombre de féminicides recensés en France entre 2016 et 2024.
+                        Ces femmes, âgées de 5 à 80 ans, ont toutes été victimes de violences extrêmes, perpétrées par des hommes : leurs partenaires, ex-conjoints, ou parfois même des inconnus.
+                        Derrière chaque chiffre, il y a une vie, une histoire unique et tragique.
+                        Ces données ne sont pas seulement des statistiques, mais le reflet d'une réalité alarmante qui doit nous interpeller et nous mobiliser.
+                    </p>
+                    <script src="script/bar.js"></script>
+                </section>
+            </div>
 
-            <h1>Statistiques des Féminicides</h1>
-            <div id="chart-container"></div>
-            <script src="script/bar.js"></script>
         </section>
+
     </main>
     <footer>
         <nav class="footer-nav">
@@ -79,7 +105,7 @@
             </a>
         </nav>
     </footer>
-    <script src="script/cloud.js" type="module"></script>
+
 </body>
 
 </html>
