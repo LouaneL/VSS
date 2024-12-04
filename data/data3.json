@@ -1,0 +1,26 @@
+[
+
+  { "state": "Amérique", "age": "2018", "population": 174 },
+  { "state": "Amérique", "age": "2019", "population": 122 },
+  { "state": "Amérique", "age": "2020", "population": 149 },
+  { "state": "Amérique", "age": "2021", "population": 1462 },
+  { "state": "Amérique", "age": "2022", "population": 984 },
+
+  { "state": "Asie", "age": "2018", "population": 15 },
+  { "state": "Asie", "age": "2019", "population": 36 },
+  { "state": "Asie", "age": "2020", "population": 15 },
+  { "state": "Asie", "age": "2021", "population": 22 },
+  { "state": "Asie", "age": "2022", "population": 7 },
+
+  { "state": "Afrique", "age": "2018", "population": 52 },
+  { "state": "Afrique", "age": "2019", "population": 41 },
+  { "state": "Afrique", "age": "2020", "population": 36 },
+  { "state": "Afrique", "age": "2021", "population": 75 },
+  { "state": "Afrique", "age": "2022", "population": 46 },
+
+  { "state": "Europe", "age": "2018", "population": 984 },
+  { "state": "Europe", "age": "2019", "population": 796 },
+  { "state": "Europe", "age": "2020", "population": 923 },
+  { "state": "Europe", "age": "2021", "population": 846 },
+  { "state": "Europe", "age": "2022", "population": 139 }
+]
