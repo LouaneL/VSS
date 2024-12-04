@@ -47,8 +47,29 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("x", d => x(d.year))
         .attr("y", d => y(d.feminicides))
         .attr("height", d => y(0) - y(d.feminicides))
-        .attr("width", x.bandwidth());
+        .attr("width", x.bandwidth())
+        .on("mouseover", function(event, d) {
+            tooltip.style("visibility", "visible")
+                .text(`${d.year}: ${d.feminicides} féminicides`);
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("top", (event.pageY + 10) + "px")
+                .style("left", (event.pageX + 10) + "px");
+        })
+        .on("mouseout", function() {
+            tooltip.style("visibility", "hidden");
+        });
 
+        const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background-color", "rgba(0, 0, 0, 0.7)")
+        .style("color", "white")
+        .style("padding", "5px")
+        .style("border-radius", "5px")
+        .style("font-size", "12px");
+        
     // Ajout des axes
     svg.append("g")
         .attr("transform", `translate(0,${height - marginBottom})`)
@@ -73,6 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
         .attr("y", marginTop / 2)
         .attr("text-anchor", "middle")
         .attr("font-size", "16px")
-        .attr("fill", "black")
+        .attr("fill", "white")
         .text("Féminicides en France de 2016 à 2024");
+
+    // Ajout de la source sous le graphique
+    d3.select("#chart-container")
+    .append("p")
+    .attr("style", "text-align: center; font-style: italic; margin-top: 10px; color: gray; font-size: 12px;")
+    .html('Source : <a href="https://www.noustoutes.org/comprendre-les-chiffres/" target="_blank" style="color: gray; text-decoration: none;">https://www.noustoutes.org/comprendre-les-chiffres/</a>');
 });
