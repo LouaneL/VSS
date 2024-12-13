@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Visualisation Radiale - Visualisation des données</title>
+    <title>Statistiques Monde - Visualisation des données</title>
     <!-- Font : Montserrat & Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +55,7 @@
                 <p>Cette Visualisation concerne les victimes dont l'agresseur est leur mari ou copain.</p>
             </div>
         </div>
-        
+
         <div class="container-graphe">
             <div class="graphe" id="graphe-3">
                 <svg class="svg-graphe" id="radial-chart3" width="500" height="500"></svg>
@@ -66,15 +66,110 @@
                 <p>Cette Visualisation concerne les victimes dont l'agresseur est un inconnu.</p>
             </div>
         </div>
-        
+
+        <div>
+            <h2>Tableau des variables</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Variable</th>
+                        <th scope="col">Type/Echelle de mesure</th>
+                        <th scope="col">Variables Visuelles présentes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Continents</th>
+                        <td>Nominale</td>
+                        <td>Cône</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Années</th>
+                        <td>Nominale</td>
+                        <td>Couleur</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre de femmes victimes</th>
+                        <td>Quantitatif</td>
+                        <td>Aire du cône</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Tableau de MacKinlay</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Quantitative</th>
+                        <th scope="col">Ordinale</th>
+                        <th scope="col">Nominale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Position</th>
+                        <td>Position</td>
+                        <td><em>Position (continents)</em></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Longueur</th>
+                        <td>Luminosité</td>
+                        <td><em>Teinte (années)</em></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Angle</th>
+                        <td>Saturation</td>
+                        <td>Texture</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><em>Aire (Nombre de femmes victimes)</em></th>
+                        <td>Teinte</td>
+                        <td>Luminosité</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Volume</th>
+                        <td>Texture</td>
+                        <td>Saturation</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Luminosité</th>
+                        <td>Longueur</td>
+                        <td>Forme</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Saturation</th>
+                        <td>Angle</td>
+                        <td>Longueur</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Teinte</th>
+                        <td>Aire</td>
+                        <td>Angle</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Texture</th>
+                        <td>Volume</td>
+                        <td>Aire</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Forme</th>
+                        <td>Forme</td>
+                        <td>Volume</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <div>
             <h2>Commentaires</h2>
             <h4>Explication des visualisations :</h4>
             <ul>
                 <li>Chaque <strong>couche</strong> de couleur correspond à une <strong>année</strong>, nous avons choisi
-                    la tranche 2018-2022 pour avoir
-                    des informations récentes et d'actualitées.</li>
+                    la tranche 2018-2022 pour avoir des informations récentes et d'actualitées. Le choix des couleurs n'a pas
+                    d'importance, nous avons simplement sélectionné des couleurs distinctes pour facilement différenceier
+                    les couches.</li>
                 <li>Il y <strong>quatre cones</strong> pour l'Europe, l'Amérique (Nord et
                     Sud), l'Asie et l'Afrique, nous n'avons pas mis l'Océanie car les données sont quasiment
                     inexistantes.</li>
@@ -82,10 +177,15 @@
                     agresseur.</li>
             </ul>
             <h4>Explication du choix de la représentation :</h4>
-            <p>Nous avons une représentation en radar, car nous avons des données avec plusieurs paramètres: les types
-                de relation victime/agresseur, les continents et les années. Ainsi, avec cette représentation nous
-                pouvons montrer clairement les statisques.</p>
+            <p>Nous avons une représentation en radar, car nous avons des données avec plusieurs paramètres. Or, ce type
+                de visualisation montre clairement les statisques, en ayant une impression générale d'un coup d'œil.
+                <br>
+                Le défaut est qu'on doit inspecter en détails le graphique pour voir les chiffres et faire des
+                soustractions pour trouver la statistique correspondant à une couche. Ainsi, les chiffres ne sont pas
+                intuitifs. De plus les couches ont des épaisseurs différentes, ce qui compléxifie la lecture des plus fines.
+            </p>
         </div>
+
 
         <script src="script/visuRadialeFct.js"></script>
     </main>

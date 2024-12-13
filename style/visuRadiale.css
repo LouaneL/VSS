@@ -45,4 +45,24 @@ h4 {
 
 li {
     margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 75%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #aa90dd;
+    padding: 10px;
+}
+
+th {
+    font-size: 17px;
+    color: #c3b2e4;
+}
+
+em {
+    color: #c3b2e4;
 }
