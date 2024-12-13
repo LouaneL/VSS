@@ -29,7 +29,7 @@ const feminicideData = new Map([
     ["Bethune", 1],
     ["Lamothe-Capdeville", 1],
     ["Ronquerolles", 1],
-    ["Paris 12ème", 1],
+    ["Paris", 1],
     ["Lagardelle", 1],
     ["Bois-Guillaume", 1],
     ["Marseille", 1],
@@ -224,57 +224,50 @@ const namemap = new Map([
     ["La Réunion", "Saint-Denis"],
     ["Mayotte", "Mamoudzou"],
   ]);
-  
- // Création d'une nouvelle map qui associe les départements aux féminicides
+
+
+// Création d'une nouvelle map qui associe les départements aux féminicides
 const departmentFeminicideData = new Map();
 
 // Remplissage de la map avec les féminicides par département
 feminicideData.forEach((count, city) => {
   namemap.forEach((departmentCity, department) => {
-    if (city === departmentCity) {
-      if (!departmentFeminicideData.has(department)) {
-        departmentFeminicideData.set(department, 0);
+      if (city === departmentCity) {
+          if (!departmentFeminicideData.has(department)) {
+              departmentFeminicideData.set(department, 0);
+          }
+          departmentFeminicideData.set(department, departmentFeminicideData.get(department) + count);
       }
-      departmentFeminicideData.set(department, departmentFeminicideData.get(department) + count);
-    }
   });
 });
 
-// Configuration de la palette de couleurs pour les féminicides
-const color = d3.scaleQuantize([1, 10], d3.schemeBlues[9]);
-
 // Charger le fichier TopoJSON
 d3.json("departements.topojson").then(function (topoData) {
-    // Convertir les données TopoJSON en GeoJSON
-    var departments = topojson.feature(topoData, topoData.objects.departements);
-  
-    // Créer un SVG pour afficher la carte
-    var width = 1200,
-      height = 1200;
-    var svg = d3
-      .select("#map")
+  const departments = topojson.feature(topoData, topoData.objects.departements);
+
+  // Configuration du SVG
+  const width = 1200, height = 1200;
+  const svg = d3.select("#map")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-  
-    // Projection avec un scale plus grand pour la France
-    var projection = d3
-      .geoMercator()
-      .scale(4000) // Ajustez cette valeur si nécessaire
-      .center([2.5, 46]) // Centrez la carte sur la France
-      .translate([width / 2, height / 2]); // Centrez la carte dans le SVG
-  
-    var path = d3.geoPath().projection(projection);
-  
-    // Définir une échelle de couleurs pour les féminicides
-    const maxFeminicides = d3.max(Array.from(departmentFeminicideData.values()));
-    const color = d3.scaleQuantize()
-      .domain([1, maxFeminicides]) // Adapter les limites de l'échelle
-      .range(d3.schemeBlues[9]); // Palette de couleurs prédéfinie
-  
-    // Dessiner les départements avec coloration
-    svg
-      .selectAll("path")
+
+  // Configuration de la projection
+  const projection = d3.geoMercator()
+      .scale(4000)
+      .center([2.5, 46])
+      .translate([width / 2, height / 2]);
+
+  const path = d3.geoPath().projection(projection);
+
+  // Définir une échelle de couleurs
+  const maxFeminicides = d3.max(Array.from(departmentFeminicideData.values()));
+  const color = d3.scaleQuantize()
+      .domain([1, maxFeminicides])
+      .range(d3.schemeBlues[9]);
+
+  // Dessiner les départements
+  svg.selectAll("path")
       .data(departments.features)
       .enter()
       .append("path")
@@ -283,57 +276,49 @@ d3.json("departements.topojson").then(function (topoData) {
       .attr("stroke", "white")
       .attr("stroke-width", 0.5)
       .attr("fill", function (d) {
-        const departmentName = d.properties.nom; // Assurez-vous que le champ correspond au département
-        const count = departmentFeminicideData.get(departmentName);
-        return count ? color(count) : "#ccc"; // Couleur par défaut si pas de données
+          const departmentName = d.properties.nom;
+          const count = departmentFeminicideData.get(departmentName);
+          return count ? color(count) : "#ccc";
       });
-  
-    // Ajouter une légende
-    const legend = Legend(color, {
+
+  // Ajouter une légende
+  const legend = Legend(color, {
       title: "Féminicides par département",
       width: 300,
-    });
-    d3.select("#map").append(() => legend);
   });
-  
-  // Fonction pour créer une légende
-  function Legend(color, { title, width }) {
-    const legend = d3.create("svg").attr("width", width).attr("height", 300);
-  
-    const legendGroup = legend
-      .append("g")
+  d3.select("#map").append(() => legend);
+});
+
+// Fonction pour créer une légende
+function Legend(color, { title, width }) {
+  const legend = d3.create("svg").attr("width", width).attr("height", 300);
+
+  const legendGroup = legend.append("g")
       .selectAll("g")
       .data(color.range())
       .join("g")
       .attr("transform", (d, i) => `translate(0, ${i * 30})`);
-  
-    // Ajout des rectangles colorés
-    legendGroup
-      .append("rect")
+
+  legendGroup.append("rect")
       .attr("width", 30)
       .attr("height", 30)
       .attr("fill", (d) => d);
-  
-    // Ajout des labels pour chaque couleur
-    legendGroup
-      .append("text")
+
+  legendGroup.append("text")
       .attr("x", 40)
       .attr("y", 15)
       .attr("dy", ".35em")
       .text((d, i) => {
-        const extent = color.invertExtent(d);
-        return `${Math.round(extent[0])} - ${Math.round(extent[1])}`;
+          const extent = color.invertExtent(d);
+          return `${Math.round(extent[0])} - ${Math.round(extent[1])}`;
       });
-  
-    // Ajout du titre de la légende
-    legend
-      .append("text")
+
+  legend.append("text")
       .attr("x", 0)
       .attr("y", 20)
       .text(title)
       .style("font-size", "14px")
       .style("font-weight", "bold");
-  
-    return legend.node();
-  }
-  
+
+  return legend.node();
+}
