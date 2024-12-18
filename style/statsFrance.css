@@ -1,7 +1,6 @@
 
 #container-bar {
     display: flex; 
-    justify-content: space-between; 
     align-items: flex-start;
     width: 100%;
     margin-bottom: 5%;
@@ -32,6 +31,26 @@
 }
 
 #map {
+    margin: 0;
     width: 100%;
     height: auto;
+}
+
+table {
+    width: 75%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #aa90dd;
+    padding: 10px;
+}
+
+th {
+    font-size: 17px;
+    color: #c3b2e4;
+}
+
+em {
+    color: #c3b2e4;
 }
