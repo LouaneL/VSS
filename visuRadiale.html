@@ -3,14 +3,16 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Visualisation Radiale - Visualisation des données</title>
+    <title>Statistiques Monde - Visualisation des données</title>
     <!-- Font : Montserrat & Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
     <link href="style/style.css" rel="stylesheet">
-    <link href="style/index.css" rel="stylesheet">
+    <link href="style/visuRadiale.css" rel="stylesheet">
     <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 
 <body>
@@ -21,28 +23,183 @@
                     <img class="logo" src="image/logo.png" alt="Accueil">
                 </a>
             </div>
+            <h1 id="title">En Leur Mémoire</h1>
             <div class="liens-navigation">
-                <a href="index.html">Accueil</a>
-                <a href="visuRadiale.html">Visualisation Radiale</a>
-                <a href="statsFrance.html">Statistique France</a>
+                <a class="lien" href="index.html">Accueil</a>
+                <a class="lien" href="visuRadiale.html">Statistiques Monde</a>
+                <a class="lien" href="statsFrance.html">Statistique France</a>               
             </div>
         </nav>
     </header>
     <main>
-        <h1>Visualisation Radiale</h1>
-        <svg id="radial-chart" width="500" height="500"></svg>
+        <h1>Visualisation des féminicides dans le monde</h1>
+        <div class="intro">
+            <p>Nous avons souhaité observer les différentes <strong>relations</strong> qui existent entre les
+                <strong>victimes</strong> et leur <strong>agresseur</strong>. Les données ont été récupérés dans la base
+                de données de <a href="https://dataunodc.un.org/dp-femicide">UNODC</a>.
+                Les données sont fiables mais il en manque pour certaines années. Par exemple, la Russie n'a pas recensé
+                pas les statistiques pour les années 2021 et 2022, ou l'Inde n'est pas mentionné dans l'Asie.
+                Ces visualisations contiennent des lacunes mais donnent une impression générale de la situation.
+                <br>
+                <br>
+                L'ensemble de ces chiffres donnés ou non donnés montre l'importance à la non sensibilisation des
+                féminicides dans le monde. Puisque, certains gros pays n'ont pas de données accessibles, ce qui appuie
+                le fait que la population mondiale n'est mise au courant de tous les crimes commis.
+            </p>
+        </div>
+        <div class="container-graphe">
+            <div class="graphe" id="graphe-1">
+                <svg class="svg-graphe" id="radial-chart1" width="500" height="500"></svg>
+                <p>Cette Visualisation concerne les victimes dont l'agresseur fait parti de sa famille.</p>
+            </div>
+            <div class="graphe" id="graphe-2">
+                <svg class="svg-graphe" id="radial-chart2" width="500" height="500"></svg>
+                <p>Cette Visualisation concerne les victimes dont l'agresseur est leur mari ou copain.</p>
+            </div>
+        </div>
 
-        <!-- Inclus D3.js -->
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <!-- Lien vers le fichier JavaScript -->
-        <script src="script/visuRadiale.js"></script>
+        <div class="container-graphe">
+            <div class="graphe" id="graphe-3">
+                <svg class="svg-graphe" id="radial-chart3" width="500" height="500"></svg>
+                <p>Cette Visualisation concerne les victimes dont l'agresseur fait parti de leur cercle d'ami.</p>
+            </div>
+            <div class="graphe" id="graphe-4">
+                <svg class="svg-graphe" id="radial-chart4" width="500" height="500"></svg>
+                <p>Cette Visualisation concerne les victimes dont l'agresseur est un inconnu.</p>
+            </div>
+        </div>
+
+        <div>
+            <h2>Tableau des variables</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Variable</th>
+                        <th scope="col">Type/Echelle de mesure</th>
+                        <th scope="col">Variables Visuelles présentes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Continents</th>
+                        <td>Nominale</td>
+                        <td>Cône</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Années</th>
+                        <td>Nominale</td>
+                        <td>Couleur</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Nombre de femmes victimes</th>
+                        <td>Quantitatif</td>
+                        <td>Aire du cône</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Tableau de MacKinlay</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Quantitative</th>
+                        <th scope="col">Ordinale</th>
+                        <th scope="col">Nominale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Position</th>
+                        <td>Position</td>
+                        <td><em>Position (continents)</em></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Longueur</th>
+                        <td>Luminosité</td>
+                        <td><em>Teinte (années)</em></td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Angle</th>
+                        <td>Saturation</td>
+                        <td>Texture</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><em>Aire (Nombre de femmes victimes)</em></th>
+                        <td>Teinte</td>
+                        <td>Luminosité</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Volume</th>
+                        <td>Texture</td>
+                        <td>Saturation</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Luminosité</th>
+                        <td>Longueur</td>
+                        <td>Forme</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Saturation</th>
+                        <td>Angle</td>
+                        <td>Longueur</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Teinte</th>
+                        <td>Aire</td>
+                        <td>Angle</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Texture</th>
+                        <td>Volume</td>
+                        <td>Aire</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Forme</th>
+                        <td>Forme</td>
+                        <td>Volume</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Commentaires</h2>
+            <h4>Explication des visualisations :</h4>
+            <ul>
+                <li>Chaque <strong>couche</strong> de couleur correspond à une <strong>année</strong>, nous avons choisi
+                    la tranche 2018-2022 pour avoir des informations récentes et d'actualitées. Le choix des couleurs n'a pas
+                    d'importance, nous avons simplement sélectionné des couleurs distinctes pour facilement différenceier
+                    les couches.</li>
+                <li>Il y <strong>quatre cones</strong> pour l'Europe, l'Amérique (Nord et
+                    Sud), l'Asie et l'Afrique, nous n'avons pas mis l'Océanie car les données sont quasiment
+                    inexistantes.</li>
+                <li>Chaque visualition représente un <strong>type de relation</strong> qu'avaient les vitimes avec leur
+                    agresseur.</li>
+            </ul>
+            <h4>Explication du choix de la représentation :</h4>
+            <p>Nous avons une représentation en radar, car nous avons des données avec plusieurs paramètres. Or, ce type
+                de visualisation montre clairement les statisques, en ayant une impression générale d'un coup d'œil.
+                <br>
+                Le défaut est qu'on doit inspecter en détails le graphique pour voir les chiffres et faire des
+                soustractions pour trouver la statistique correspondant à une couche. Ainsi, les chiffres ne sont pas
+                intuitifs. De plus les couches ont des épaisseurs différentes, ce qui compléxifie la lecture des plus fines.
+            </p>
+        </div>
+
+
+        <script src="script/visuRadialeFct.js"></script>
     </main>
     <footer>
-        <nav class="footer-nav">
-            <a href="index.html">
-                <img class="logo" src="image/logo.png" alt="Accueil">
-            </a>
-        </nav>
+        <div class="footer-nav">
+            <nav>
+                <a href="index.html">
+                    <img class="logo" src="image/logo.png" alt="Accueil">
+                </a>
+            </nav>
+            <p class="footer">Louane Lesur, Mahamoudou Hannane - Projet Visualisation des données</p>
+        </div>
     </footer>
 </body>
 

@@ -3,8 +3,9 @@ const data = [
   {state: "AL", age: "Under 5 Years", population: 310504},
   {state: "AK", age: "Under 5 Years", population: 52083},
   {state: "AZ", age: "Under 5 Years", population: 515910},
-  {state: "AR", age: "Under 10 Years", population: 202070},
-  {state: "AL", age: "5 to 13 Years", population: 552339}
+  {state: "AR", age: "Under 1 Years", population: 20270},
+  {state: "AR", age: "Under 5 Years", population: 100270},
+  {state: "AR", age: "Under 10 Years", population: 202070}
 ];
 
 // Dimensions du graphique
@@ -143,3 +144,5 @@ svg.append("g")
         .attr("y", 9)
         .attr("dy", "0.35em")
         .text(d => d));
+
+
