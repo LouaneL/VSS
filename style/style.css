@@ -47,6 +47,7 @@ header, footer {
 
 .lien {
     color: #1f2039;
+    text-decoration: none;
     margin: 20px;
 }
 
